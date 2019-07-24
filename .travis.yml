@@ -1,0 +1,14 @@
+dist: xenial
+language: python
+cache: pip
+python:
+  - '3.7'
+deploy:
+  provider: pypi
+  user: zhelyabuzhsky
+  password:
+    secure: i3sL8P4OqMA1jWULkQYeE5Pbml73UdAjJDSd3gZuw3WUPm9YPtlllU3eDv3z4C3N1MXB/owRSlDVnkH3sx5+uQXl1MOfJu8ROju5ynDUXnop1u4wv2hkwW7CDbsj4fepz9C+k/WNBBb9WbHldnEMUmsMLaK1eMOR116g0tSoEBy63xJPKNI5Ofx+q1o8aF55GLmyZ6LJdcX+RmzTBONxUmoxIg6JtrjZzxTZHIViSEs0iKycVE6s6MJW3rmVE+CpP2NtV1Ut+Z1/0X26l2n9Q2jlcEdHCKIP6xlGhEsLOHv8DfvjGdXh/a3Qc6LHlKqm8fExhcTmMo5oxYKqPQ7fv+tW1bO49+oMWuG3iTszNq5EiVAbs9DCR/V8Z+T+RfnwT7fL4nnXIXAvboj44tBiTnXznw1rIzQyj7pGeVO/OzdoC2mt+F6xH9YdrPntYAYWJDU24ddvVwIUVu3p7Ov2uSY6HENVXMD39ufpaP9dew7urDKTRd/QhDXiCXyY8z/GiFwAujXO8uW46Yvwgo2TCdfNa1Kpd9wPsQHDdzU+L9z7L1j7qIbldycwlKfIen/Ay+9VgIuACwZSPwmSiNJi5vvf3aWM+hQE+SU6PzOKGrPKFCHctd+5FQMwhzsnbTMPtQBZkDt1pX95GyZJfYRiJhkk1qVXBzHjLKFn14x0Q2Q=
+  on:
+    tags: true
+script:
+  - python setup.py test
