@@ -1,7 +1,7 @@
 import pytest
 from django.core.exceptions import ValidationError
 
-from django_ru_validators.validators import validate_inn, BankAccountNumberValidator
+from django_ru_validators import validate_inn, BankAccountNumberValidator
 
 
 @pytest.mark.parametrize(
