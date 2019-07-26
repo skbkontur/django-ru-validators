@@ -15,7 +15,7 @@ $ pip install django-ru-validators
 ```python
 from django import forms
 from django.core.exceptions import ValidationError
-from django_ru_validators.validators import validate_inn, BankAccountNumberValidator
+from django_ru_validators import validate_inn, BankAccountNumberValidator
 
 from bank.payment_orders.models import PaymentOrder
 
