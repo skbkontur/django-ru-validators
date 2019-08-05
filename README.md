@@ -14,20 +14,21 @@ $ pip install django-ru-validators
 
 ```python
 from django import forms
+from django.db import models
 from django.core.exceptions import ValidationError
 from django_ru_validators import validate_inn, BankAccountNumberValidator
 
-from bank.payment_orders.models import PaymentOrder
+
+class PaymentOrder(models.Model):
+    recipient_inn = models.CharField(validators=[validate_inn])
+    recipient_account_number = models.CharField()
+    recipient_bank = models.CharField()
 
 
 class PaymentOrderForm(forms.ModelForm):
     class Meta:
         model = PaymentOrder
         fields = ("recipient_inn", "recipient_account_number", "recipient_bik")
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields["recipient_inn"].validators.append(validate_inn)
 
     def clean(self):
         cleaned_data = super().clean()
