@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-package_version = os.environ.get('TRAVIS_TAG') or '0.dev0'
+package_version = os.environ.get('TRAVIS_TAG')
 
 with open('README.md', 'r') as readme:
     long_description = readme.read()
