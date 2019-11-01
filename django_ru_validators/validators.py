@@ -71,13 +71,19 @@ class BankAccountNumberValidator:
         return (res % 10) == 0
 
     def _check_bank_account_number(self, account: str, bik: Optional[str]) -> bool:
-        return (
+        if (
             account is not None
             and bik is not None
             and len(account) == 20
             and len(bik) == 9
-            and self._check_bank_number(bik[-3:] + account)
-        )
+        ):
+            if bik[6] == "0" and bik[7] == "0":
+                # ключевание по правилам корреспондентского счёта
+                if self._check_bank_number("0" + bik[4:6] + account):
+                    return True
+            if self._check_bank_number(bik[-3:] + account):
+                return True
+        return False
 
     def __call__(self, value: str) -> None:
         if not self._check_bank_account_number(value, self.bik):
