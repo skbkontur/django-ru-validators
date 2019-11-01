@@ -5,7 +5,7 @@ with open("README.md", "r") as readme:
 
 setup(
     name="django_ru_validators",
-    version="1.6.3",
+    version="1.7.0",
     description="Django RU validators",
     long_description=long_description,
     long_description_content_type="text/markdown",
